@@ -1,0 +1,7 @@
+<BorderPane id="mainWindow"
+            styleClass="mainWindow"
+            stylesheets="@/css/mainWindow.css"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="se.newton.sysjg3.newtonchess.">
+</BorderPane>
