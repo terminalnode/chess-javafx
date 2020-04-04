@@ -1,9 +1,7 @@
 package se.newton.sysjg3.newtonchess.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javafx.scene.input.MouseEvent;
 import retrofit2.Call;
@@ -14,6 +12,8 @@ import se.newton.sysjg3.newtonchess.api.ApiLogin;
 import se.newton.sysjg3.newtonchess.api.entities.PlayerEntity;
 import se.newton.sysjg3.newtonchess.api.entities.TokenEntity;
 
+import java.io.IOException;
+
 public class MainWindowController extends GenericController {
 
   @FXML private Button logInButton;
@@ -21,6 +21,8 @@ public class MainWindowController extends GenericController {
 
   @FXML private TextField userNameTextField;
   @FXML private PasswordField passwordTextField;
+
+  private String loginFailedWarningString = "Warning: Login Failed. Please check you Username and Password.";
 
   @FXML
   protected void initialize() {
@@ -32,45 +34,39 @@ public class MainWindowController extends GenericController {
 
   @FXML
   public void logInButtonClicked(MouseEvent mouseEvent) {
+    disableButtons();
+
     logInButton.setText(userNameTextField.getText());
 
     //Get the login supplied login credentials.
     String username = userNameTextField.getText().strip();
     String password = passwordTextField.getText().strip();
 
-    PlayerEntity loginPlayer = new PlayerEntity(username, password);
 
     // Create the user we will send to the API
-    PlayerEntity newPlayer = new PlayerEntity(username, password);
-    Call<TokenEntity> call = ApiLogin.login(newPlayer);
+    PlayerEntity loginPlayer = new PlayerEntity(username, password);
+    Call<TokenEntity> call = ApiLogin.login(loginPlayer);
 
-    // Make API call
-    call.enqueue(new Callback<TokenEntity>() {
-      @Override
-      @EverythingIsNonNull
-      public void onResponse(Call<TokenEntity> call, Response<TokenEntity> response) {
-        if (response.code() == 200) {
-          handleSuccessfulLogin(response);
-        } else {
-          handleUnsuccessfulLogin(response);
-        }
-        enableButtons();
+
+    try {
+      Response<TokenEntity> response = call.execute();
+      if (response.body() != null) {
+          handleSuccessfulLogin(response, mouseEvent);
       }
-
-      @Override
-      public void onFailure(Call<TokenEntity> call, Throwable t) {
-
+      else {
+        Alert loginFailedAlert = new Alert(Alert.AlertType.ERROR, loginFailedWarningString, ButtonType.OK);
+        loginFailedAlert.showAndWait();
       }
+    }
+    catch (IOException ioe) {
 
-
-      // TODO make API call and use replace scene here.
-    });
+    }
   }
 
   @FXML
   public void signUpButtonClicked(MouseEvent mouseEvent) {
     signUpButton.setText(passwordTextField.getText());
-    // TODO make API call here.
+
   }
 
   private void disableButtons() {
@@ -85,13 +81,21 @@ public class MainWindowController extends GenericController {
 
   }
 
- private void handleSuccessfulLogin(Response<TokenEntity> response) {
-    //HelperMethods.replaceScene(HelperMethods.listGamesWindowFXML, );
+ private void handleSuccessfulLogin(Response<TokenEntity> response, MouseEvent mouseEvent) {
+   System.out.println("We have a succesfull response!");
+    this.setToken(response.body());
+    try {
+      HelperMethods.replaceScene(HelperMethods.listGamesWindowFXML, HelperMethods.listGamesWindowTitle ,mouseEvent, this);
+    }
+    catch (IOException ioe) {
+
+   }
+
 
   }
 
   private void handleUnsuccessfulLogin(Response<TokenEntity> response) {
-
+    System.out.println("The login attempt was unseccesfull.");
   }
 
 

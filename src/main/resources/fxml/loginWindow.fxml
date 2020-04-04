@@ -17,8 +17,8 @@
     <bottom>
         <VBox>
             <HBox>
-                <TextField fx:id="userName" ></TextField>
-                <PasswordField fx:id="password" ></PasswordField>
+                <TextField fx:id="userNameTextField" ></TextField>
+                <PasswordField fx:id="passwordTextField" ></PasswordField>
             </HBox>
             <HBox>
                 <Button fx:id="logInButton"  text="Log In"></Button>
