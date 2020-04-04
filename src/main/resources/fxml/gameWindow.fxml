@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             id="gameWindow"
             styleClass="window"
@@ -14,4 +14,167 @@
             fx:controller="se.newton.sysjg3.newtonchess.controllers.GameWindowController"
             prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+    <VBox id="chessBoard">
+        <HBox id="horizontalIndicatorRowBottom">
+            <VBox id="cornerIndicatorTL" styleClass="cornerIndicator"/>
+            <VBox id="columnIndicatorTop0" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop1" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop2" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop3" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop4" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop5" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop6" styleClass="columnIndicator"/>
+            <VBox id="columnIndicatorTop7" styleClass="columnIndicator"/>
+            <VBox id="cornerIndicatorBL" styleClass="cornerIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow0">
+            <VBox id="rowIndicator0" styleClass="rowIndicator">
+                <Label text="8" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq00" styleClass="whiteSquare"/>
+            <VBox id="sq01" styleClass="blackSquare"/>
+            <VBox id="sq02" styleClass="whiteSquare"/>
+            <VBox id="sq03" styleClass="blackSquare"/>
+            <VBox id="sq04" styleClass="whiteSquare"/>
+            <VBox id="sq05" styleClass="blackSquare"/>
+            <VBox id="sq06" styleClass="whiteSquare"/>
+            <VBox id="sq07" styleClass="blackSquare"/>
+            <VBox id="rowIndicatorLeft0" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow1">
+            <VBox id="rowIndicator1" styleClass="rowIndicator">
+                <Label text="7" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq10" styleClass="blackSquare"/>
+            <VBox id="sq11" styleClass="whiteSquare"/>
+            <VBox id="sq12" styleClass="blackSquare"/>
+            <VBox id="sq13" styleClass="whiteSquare"/>
+            <VBox id="sq14" styleClass="blackSquare"/>
+            <VBox id="sq15" styleClass="whiteSquare"/>
+            <VBox id="sq16" styleClass="blackSquare"/>
+            <VBox id="sq17" styleClass="whiteSquare"/>
+            <VBox id="rowIndicatorLeft1" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow2">
+            <VBox id="rowIndicator2" styleClass="rowIndicator">
+                <Label text="6" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq20" styleClass="whiteSquare"/>
+            <VBox id="sq21" styleClass="blackSquare"/>
+            <VBox id="sq22" styleClass="whiteSquare"/>
+            <VBox id="sq23" styleClass="blackSquare"/>
+            <VBox id="sq24" styleClass="whiteSquare"/>
+            <VBox id="sq25" styleClass="blackSquare"/>
+            <VBox id="sq26" styleClass="whiteSquare"/>
+            <VBox id="sq27" styleClass="blackSquare"/>
+            <VBox id="rowIndicatorLeft2" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow3">
+            <VBox id="rowIndicator3" styleClass="rowIndicator">
+                <Label text="5" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq30" styleClass="blackSquare"/>
+            <VBox id="sq31" styleClass="whiteSquare"/>
+            <VBox id="sq32" styleClass="blackSquare"/>
+            <VBox id="sq33" styleClass="whiteSquare"/>
+            <VBox id="sq34" styleClass="blackSquare"/>
+            <VBox id="sq35" styleClass="whiteSquare"/>
+            <VBox id="sq36" styleClass="blackSquare"/>
+            <VBox id="sq37" styleClass="whiteSquare"/>
+            <VBox id="rowIndicatorLeft3" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow4">
+            <VBox id="rowIndicator4" styleClass="rowIndicator">
+                <Label text="4" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq40" styleClass="whiteSquare"/>
+            <VBox id="sq41" styleClass="blackSquare"/>
+            <VBox id="sq42" styleClass="whiteSquare"/>
+            <VBox id="sq43" styleClass="blackSquare"/>
+            <VBox id="sq44" styleClass="whiteSquare"/>
+            <VBox id="sq45" styleClass="blackSquare"/>
+            <VBox id="sq46" styleClass="whiteSquare"/>
+            <VBox id="sq47" styleClass="blackSquare"/>
+            <VBox id="rowIndicatorLeft4" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow5">
+            <VBox id="rowIndicator5" styleClass="rowIndicator">
+                <Label text="3" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq50" styleClass="blackSquare"/>
+            <VBox id="sq51" styleClass="whiteSquare"/>
+            <VBox id="sq52" styleClass="blackSquare"/>
+            <VBox id="sq53" styleClass="whiteSquare"/>
+            <VBox id="sq54" styleClass="blackSquare"/>
+            <VBox id="sq55" styleClass="whiteSquare"/>
+            <VBox id="sq56" styleClass="blackSquare"/>
+            <VBox id="sq57" styleClass="whiteSquare"/>
+            <VBox id="rowIndicatorLeft5" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow6">
+            <VBox id="rowIndicator6" styleClass="rowIndicator">
+                <Label text="2" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq60" styleClass="whiteSquare"/>
+            <VBox id="sq61" styleClass="blackSquare"/>
+            <VBox id="sq62" styleClass="whiteSquare"/>
+            <VBox id="sq63" styleClass="blackSquare"/>
+            <VBox id="sq64" styleClass="whiteSquare"/>
+            <VBox id="sq65" styleClass="blackSquare"/>
+            <VBox id="sq66" styleClass="whiteSquare"/>
+            <VBox id="sq67" styleClass="blackSquare"/>
+            <VBox id="rowIndicatorLeft6" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="chessRow7">
+            <VBox id="rowIndicator7" styleClass="rowIndicator">
+                <Label text="1" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="sq70" styleClass="blackSquare"/>
+            <VBox id="sq71" styleClass="whiteSquare"/>
+            <VBox id="sq72" styleClass="blackSquare"/>
+            <VBox id="sq73" styleClass="whiteSquare"/>
+            <VBox id="sq74" styleClass="blackSquare"/>
+            <VBox id="sq75" styleClass="whiteSquare"/>
+            <VBox id="sq76" styleClass="blackSquare"/>
+            <VBox id="sq77" styleClass="whiteSquare"/>
+            <VBox id="rowIndicatorLeft7" styleClass="rowIndicator"/>
+        </HBox>
+
+        <HBox id="horizontalIndicatorRowBottom">
+            <VBox id="cornerIndicatorBL" styleClass="cornerIndicator"/>
+            <VBox id="columnIndicatorA" styleClass="columnIndicator">
+                <Label text="A" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorB" styleClass="columnIndicator">
+                <Label text="B" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorC" styleClass="columnIndicator">
+                <Label text="C" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorD" styleClass="columnIndicator">
+                <Label text="D" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorE" styleClass="columnIndicator">
+                <Label text="E" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorF" styleClass="columnIndicator">
+                <Label text="F" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorG" styleClass="columnIndicator">
+                <Label text="G" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="columnIndicatorH" styleClass="columnIndicator">
+                <Label text="H" styleClass="indicatorText"/>
+            </VBox>
+            <VBox id="cornerIndicatorBR" styleClass="cornerIndicator"/>
+        </HBox>
+    </VBox>
+</VBox>

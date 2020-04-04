@@ -1,10 +1,57 @@
 .root {
-    -fx-font-size: 14px;
-    -fx-font-family: sans-serif;
-    -fx-background-color: #770077;
+  -fx-font-size:        14px;
+  -fx-font-family:      sans-serif;
+  -fx-background-color: #770077;
  }
 
 .header-section Label {
-    -fx-text-fill: #FFFFFF;
-    -fx-padding: 15px;
+  -fx-text-fill:  #FFFFFF;
+  -fx-padding:    15px;
+}
+
+.rowIndicator {
+	-fx-min-width:        20px;
+	-fx-max-width:        20px;
+	-fx-min-height:       70px;
+	-fx-max-height:       70px;
+	-fx-alignment:        center;
+  -fx-background-color: #CD853F;
+}
+
+.columnIndicator {
+	-fx-min-width:        70px;
+	-fx-max-width:        70px;
+	-fx-min-height:       20px;
+	-fx-max-height:       20px;
+	-fx-alignment:        center;
+  -fx-background-color: #CD853F;
+}
+
+.cornerIndicator {
+	-fx-min-width:        20px;
+	-fx-max-width:        20px;
+	-fx-min-height:       20px;
+	-fx-max-height:       20px;
+  -fx-background-color: #CD853F;
+}
+
+.indicatorText {
+  -fx-font:             bold 18px "Arial";
+  -fx-text-fill:        #F5DEB3;
+}
+
+.blackSquare {
+	-fx-min-width:        70px;
+	-fx-max-width:        70px;
+	-fx-min-height:       70px;
+	-fx-max-height:       70px;
+  -fx-background-color: #000000;
+}
+
+.whiteSquare {
+	-fx-min-width:        70px;
+	-fx-max-width:        70px;
+	-fx-min-height:       70px;
+	-fx-max-height:       70px;
+  -fx-background-color: #FFFFFF;
 }
