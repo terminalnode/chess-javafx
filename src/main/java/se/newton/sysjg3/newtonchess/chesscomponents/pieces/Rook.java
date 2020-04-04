@@ -21,10 +21,10 @@ public class Rook extends Piece {
   }
 
   @Override
-  public Image getDrawable() {
-    URL imageUrl = isWhite() ?
-        HelperMethods.getRes("drawable/wrook.png") : HelperMethods.getRes("drawable/brook.png");
-    return new Image(imageUrl.toExternalForm());
+  public URL getDrawable() {
+    return isWhite() ?
+        HelperMethods.getRes("drawable/wrook.png") :
+        HelperMethods.getRes("drawable/brook.png");
   }
 
   @Override

@@ -1,8 +1,10 @@
 package se.newton.sysjg3.newtonchess.chesscomponents;
 
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
 import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
+
 
 /**
  * A class representing a square on the board. When a piece is set it's put in the VBox

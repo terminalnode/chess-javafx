@@ -47,6 +47,7 @@ public class GameWindowController extends GenericController {
       for (int y = 0; y < 8; y++) {
         Square sq = squares[y][x];
         sq.setAllSquares(squares);
+        sq.setParent(this);
         sq.setX(x);
         sq.setY(y);
       }
@@ -63,7 +64,6 @@ public class GameWindowController extends GenericController {
       int y = piece.getY();
       Square sq = squares[y][x];
       sq.setPiece(piece);
-      sq.setParent(this);
     }
   }
 

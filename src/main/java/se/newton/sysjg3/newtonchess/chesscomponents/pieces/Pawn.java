@@ -66,10 +66,10 @@ public class Pawn extends Piece {
   }
 
   @Override
-  public Image getDrawable() {
-    URL imageUrl = isWhite() ?
-        HelperMethods.getRes("drawable/wpawn.png") : HelperMethods.getRes("drawable/bpawn.png");
-    return new Image(imageUrl.toExternalForm());
+  public URL getDrawable() {
+    return isWhite() ?
+        HelperMethods.getRes("drawable/wpawn.png") :
+        HelperMethods.getRes("drawable/bpawn.png");
   }
 
   @Override

@@ -23,10 +23,10 @@ public class Queen extends Piece {
   }
 
   @Override
-  public Image getDrawable() {
-    URL imageUrl = isWhite() ?
-        HelperMethods.getRes("drawable/wqueen.png") : HelperMethods.getRes("drawable/bqueen.png");
-    return new Image(imageUrl.toExternalForm());
+  public URL getDrawable() {
+    return isWhite() ?
+        HelperMethods.getRes("drawable/wqueen.png") :
+        HelperMethods.getRes("drawable/bqueen.png");
   }
 
   @Override

@@ -46,6 +46,7 @@
 	-fx-min-height:       70px;
 	-fx-max-height:       70px;
   -fx-background-color: #000000;
+  -fx-alignment:        center;
 }
 
 .whiteSquare {
@@ -54,4 +55,5 @@
 	-fx-min-height:       70px;
 	-fx-max-height:       70px;
   -fx-background-color: #FFFFFF;
+  -fx-alignment:        center;
 }

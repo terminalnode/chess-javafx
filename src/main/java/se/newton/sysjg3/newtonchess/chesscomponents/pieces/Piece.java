@@ -3,6 +3,7 @@ package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public abstract class Piece {
   private boolean isWhite;
   private boolean moved;
   private ImageView pieceGraphic;
+  private final int imageSize = 70; // defines the max height and width of an imageview
 
   //----- Constructor ----//
   Piece() {
@@ -34,7 +36,7 @@ public abstract class Piece {
 
   //----- Abstract methods ----//
   public abstract List<int[]> getMoves(List<Piece> pieces);
-  public abstract Image getDrawable();
+  public abstract URL getDrawable();
   public abstract PieceType getPieceType();
 
 
@@ -213,8 +215,14 @@ public abstract class Piece {
 
   public ImageView getPieceGraphic() {
     if (pieceGraphic == null) {
-      pieceGraphic = new ImageView(this.getDrawable());
+      Image image = new Image(
+          this.getDrawable().toExternalForm(),
+          imageSize, imageSize, // Requested height/width
+          true,
+          true);
+      pieceGraphic = new ImageView(image);
     }
+
     return pieceGraphic;
   }
 }

@@ -40,10 +40,10 @@ public class King extends Piece {
   }
 
   @Override
-  public Image getDrawable() {
-    URL imageUrl = isWhite() ?
-        HelperMethods.getRes("drawable/wking.png") : HelperMethods.getRes("drawable/bking.png");
-    return new Image(imageUrl.toExternalForm());
+  public URL getDrawable() {
+    return isWhite() ?
+        HelperMethods.getRes("drawable/wking.png") :
+        HelperMethods.getRes("drawable/bking.png");
   }
 
   @Override
