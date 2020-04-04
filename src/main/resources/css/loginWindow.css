@@ -1,11 +1,16 @@
 .root {
     -fx-font-size: 14px;
     -fx-font-family: sans-serif;
-    -fx-background-color: #770077;
+    -fx-background-color: #cc5500;
  }
 
+ .header-section {
+     -fx-padding: 10px;
+     -fx-font-size: 20px;
+}
 
-.header-section Label {
-    -fx-text-fill: #ffffff;
-    -fx-padding: 15px;
+.text-field {
+    -fx-padding: 1px;
+    -fx-font-size: 17px:
+
 }

@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             id="mainWindow"
@@ -12,12 +13,18 @@
             stylesheets="@/css/loginWindow.css"
             fx:controller="se.newton.sysjg3.newtonchess.controllers.MainWindowController">
     <top>
-        <Label styleClass="header-section"  id="header-text" text="Newton Chess"></Label>
+        <HBox styleClass="header-section">
+        <Label id="header-text" text="Newton Chess"></Label>
+        </HBox>
     </top>
     <bottom>
         <VBox>
             <HBox>
+                <Text fx:id="user" >Username :</Text>
                 <TextField fx:id="userNameTextField" ></TextField>
+            </HBox>
+            <HBox>
+                <Text>Password :</Text>
                 <PasswordField fx:id="passwordTextField" ></PasswordField>
             </HBox>
             <HBox>

@@ -1,10 +1,21 @@
 .root {
     -fx-font-size: 14px;
     -fx-font-family: sans-serif;
-    -fx-background-color: #770077;
+    -fx-text-color: #ffffff
+    -fx-background-color #cc5500;
  }
 
-.header-section Label {
-    -fx-text-fill: #FFFFFF;
-    -fx-padding: 15px;
-}
+.HBox {
+    -fx-background-color: #151680;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+ }
+
+.Button {
+      -fx-background-color: blue
+
+
+ }
+
+

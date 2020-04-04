@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,6 +23,8 @@ public class MainWindowController extends GenericController {
   @FXML private TextField userNameTextField;
   @FXML private PasswordField passwordTextField;
 
+  @FXML private Text user;
+
   private String loginFailedWarningString = "Warning: Login Failed. Please check you Username and Password.";
 
   @FXML
@@ -30,13 +33,12 @@ public class MainWindowController extends GenericController {
     logInButton.setOnMouseClicked(this::logInButtonClicked);
 
     signUpButton.setOnMouseClicked(this::signUpButtonClicked);
+
   }
 
   @FXML
   public void logInButtonClicked(MouseEvent mouseEvent) {
     disableButtons();
-
-    logInButton.setText(userNameTextField.getText());
 
     //Get the login supplied login credentials.
     String username = userNameTextField.getText().strip();
@@ -56,16 +58,17 @@ public class MainWindowController extends GenericController {
       else {
         Alert loginFailedAlert = new Alert(Alert.AlertType.ERROR, loginFailedWarningString, ButtonType.OK);
         loginFailedAlert.showAndWait();
+        enableButtons();
       }
     }
     catch (IOException ioe) {
-
+      ioe.printStackTrace();
+      System.exit(1);
     }
   }
 
   @FXML
   public void signUpButtonClicked(MouseEvent mouseEvent) {
-    signUpButton.setText(passwordTextField.getText());
 
   }
 
