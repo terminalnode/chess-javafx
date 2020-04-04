@@ -1,6 +1,5 @@
 package se.newton.sysjg3.newtonchess.chesscomponents;
 
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
 import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
@@ -16,12 +15,14 @@ public class Square {
   private VBox vbox;
   private Square[][] allSquares;
   private GameWindowController parent;
+  private SquareClickHandler listener;
   int x, y;
 
   //----- Constructors -----//
   public Square(VBox vbox) {
     this.vbox = vbox;
-    this.vbox.setOnMouseClicked(new SquareClickHandler(this));
+    listener = new SquareClickHandler(this);
+    this.vbox.setOnMouseClicked(listener);
     piece = null;
     allSquares = null;
     parent = null;
@@ -33,6 +34,12 @@ public class Square {
     System.out.println("Number of children before removal: " + vbox.getChildren().size());
     vbox.getChildren().clear();
     System.out.println("Number of children after removal: " + vbox.getChildren().size());
+  }
+
+  public void informListener() {
+    listener.setController(parent);
+    listener.setxHere(x);
+    listener.setyHere(y);
   }
 
   //----- Setters -----//

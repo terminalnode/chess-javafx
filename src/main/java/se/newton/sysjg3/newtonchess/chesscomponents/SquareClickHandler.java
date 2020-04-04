@@ -7,12 +7,18 @@ import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
 
 import java.util.List;
 
+// TODO: Deselect piece if same square is clicked twice.
+// TODO: Mark selected square in some fashion.
+// TODO: Implement API call.
+
 /**
  * A clickhandler that's placed on the VBoxes contained in the squares, it checks if
  * moves are legal and makes API calls to try and make them.
  */
 public class SquareClickHandler implements EventHandler<MouseEvent> {
   private Square mySquare;
+  private GameWindowController controller;
+  private int xHere, yHere;
 
 
   public SquareClickHandler(Square yourSquare) {
@@ -23,11 +29,7 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
   public void handle(MouseEvent event) {
     Piece pieceHere = mySquare.getPiece();
     Piece selectedPiece = mySquare.getParent().getSelectedPiece();
-
-    // Sanity check
-    System.out.println(
-        String.format("Hello, I'm (%s,%s) and I contain %s.",
-            mySquare.getX(), mySquare.getY(), pieceHere));
+    System.out.println(String.format("Hello, I'm (%s,%s) and I contain %s.", xHere, yHere, pieceHere));
 
     // If neither this nor the last clicked box contained a piece, we're not interested.
     if (pieceHere == null && selectedPiece == null) {
@@ -58,11 +60,9 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    */
   private void selectThisSquare() {
     Piece thisPiece = mySquare.getPiece();
-    GameWindowController gwc = mySquare.getParent();
-
-    gwc.setSelectedPiece(thisPiece);
-    gwc.setSelectedX(thisPiece.getX());
-    gwc.setSelectedY(thisPiece.getY());
+    controller.setSelectedPiece(thisPiece);
+    controller.setSelectedX(thisPiece.getX());
+    controller.setSelectedY(thisPiece.getY());
 
     // Sanity check
     System.out.println(String.format(
@@ -78,12 +78,8 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * @return Boolean indicating whether the move is possible
    */
   private boolean checkIfMoveIsLegal() {
-    int xHere = mySquare.getX();
-    int yHere = mySquare.getY();
-    GameWindowController gwc = mySquare.getParent();
-
-    Piece selectedPiece = gwc.getSelectedPiece();
-    List<int[]> selectedMoves = selectedPiece.getMoves(gwc.getGame().getPieces());
+    Piece selectedPiece = controller.getSelectedPiece();
+    List<int[]> selectedMoves = selectedPiece.getMoves(controller.getGame().getPieces());
 
     for (int[] move : selectedMoves) {
       if (move[0] == xHere && move[1] == yHere) {
@@ -109,29 +105,28 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * correct location.
    */
   private void moveThePieceLocally() {
-    GameWindowController gwc = mySquare.getParent();
     //int[] positionHere = new int[]{ mySquare.getX(), mySquare.getY() };
     //int[] positionThere = new int[]{ gwc.getSelectedX(), gwc.getSelectedY() };
     Piece pieceHere = mySquare.getPiece();
-    Piece pieceThere = gwc.getSelectedPiece();
+    Piece pieceThere = controller.getSelectedPiece();
 
     // Remove the piece here from the GameWindowController and this square.
-    System.out.println("Pieces on board before move: " + gwc.getGame().getPieces().size());
-    gwc.getGame()
+    System.out.println("Pieces on board before move: " + controller.getGame().getPieces().size());
+    controller.getGame()
        .getPieces()
        .remove(pieceHere);
     mySquare.removePiece();
     mySquare.setPiece(pieceThere);
 
     // Set the piece's new position
-    pieceThere.setX(mySquare.getX());
-    pieceThere.setY(mySquare.getY());
+    pieceThere.setX(xHere);
+    pieceThere.setY(yHere);
 
     // Unset the GameWindowControllers selected* variables.
-    gwc.setSelectedX(-1);
-    gwc.setSelectedY(-1);
-    gwc.setSelectedPiece(null);
-    System.out.println("Pieces on board after move: " + gwc.getGame().getPieces().size());
+    controller.setSelectedX(-1);
+    controller.setSelectedY(-1);
+    controller.setSelectedPiece(null);
+    System.out.println("Pieces on board after move: " + controller.getGame().getPieces().size());
   }
 
   /**
@@ -141,6 +136,25 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * to indicate that nothing is currently selected.
    */
   private void selectUsIfWeHaveAPiece() {
+    Piece pieceHere = mySquare.getPiece();
+    if (pieceHere != null) {
+      controller.setSelectedX(xHere);
+      controller.setSelectedY(yHere);
+      controller.setSelectedPiece(pieceHere);
+    }
+  }
 
+  //----- Setters -----//
+  // This class doesn't really have any getters.
+  public void setController(GameWindowController controller) {
+    this.controller = controller;
+  }
+
+  public void setxHere(int xHere) {
+    this.xHere = xHere;
+  }
+
+  public void setyHere(int yHere) {
+    this.yHere = yHere;
   }
 }

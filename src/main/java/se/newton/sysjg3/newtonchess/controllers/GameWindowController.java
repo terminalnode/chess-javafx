@@ -1,7 +1,11 @@
 package se.newton.sysjg3.newtonchess.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
+import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
 import se.newton.sysjg3.newtonchess.chesscomponents.Square;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
 
@@ -18,6 +22,10 @@ public class GameWindowController extends GenericController {
   @FXML VBox sq50, sq51, sq52, sq53, sq54, sq55, sq56, sq57;
   @FXML VBox sq60, sq61, sq62, sq63, sq64, sq65, sq66, sq67;
   @FXML VBox sq70, sq71, sq72, sq73, sq74, sq75, sq76, sq77;
+  @FXML Button backButton, refreshButton;
+  @FXML Label whoseTurnLabel, numberOfTurns;
+  @FXML Circle whoseTurnCircle;
+
   private Square[][] squares;
   Piece selectedPiece;
   int selectedX, selectedY;
@@ -50,6 +58,7 @@ public class GameWindowController extends GenericController {
         sq.setParent(this);
         sq.setX(x);
         sq.setY(y);
+        sq.informListener();
       }
     }
   }
@@ -59,10 +68,20 @@ public class GameWindowController extends GenericController {
     // Give all the squares their corresponding pieces.
     // We actually want a null pointer exception here if the pieces are not set, that's a serious error.
     // We should inherit the game from the old controller through GenericController
+    insertGameInfo(game);
+  }
+
+  /**
+   * This is used whenever we want to insert information from a game into
+   * the controller, thus updating it's state with the latest and greatest
+   * information the API has to offer.
+   * @param newGame The game entity with which to replace our old one.
+   */
+  private void insertGameInfo(GameEntity newGame) {
+    setGame(newGame);
+
     for (Piece piece : game.getPieces()) {
-      int x = piece.getX();
-      int y = piece.getY();
-      Square sq = squares[y][x];
+      Square sq = squares[piece.getY()][piece.getX()];
       sq.setPiece(piece);
     }
   }
