@@ -3,6 +3,9 @@ package se.newton.sysjg3.newtonchess.chesscomponents;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
+import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
+
+import java.util.List;
 
 /**
  * A clickhandler that's placed on the VBoxes contained in the squares, it checks if
@@ -10,6 +13,7 @@ import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
  */
 public class SquareClickHandler implements EventHandler<MouseEvent> {
   private Square mySquare;
+
 
   public SquareClickHandler(Square yourSquare) {
     mySquare = yourSquare;
@@ -53,6 +57,20 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * So we select this one.
    */
   private void selectThisSquare() {
+    Piece thisPiece = mySquare.getPiece();
+    GameWindowController gwc = mySquare.getParent();
+
+    gwc.setSelectedPiece(thisPiece);
+    gwc.setSelectedX(thisPiece.getX());
+    gwc.setSelectedY(thisPiece.getY());
+
+    // Sanity check
+    System.out.println(String.format(
+        "Selected square is (%s,%s) %s",
+        thisPiece,
+        thisPiece.getX(),
+        thisPiece.getY()
+    ));
   }
 
   /**
@@ -60,7 +78,21 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * @return Boolean indicating whether the move is possible
    */
   private boolean checkIfMoveIsLegal() {
-    return true;
+    int xHere = mySquare.getX();
+    int yHere = mySquare.getY();
+    GameWindowController gwc = mySquare.getParent();
+
+    Piece selectedPiece = gwc.getSelectedPiece();
+    List<int[]> selectedMoves = selectedPiece.getMoves(gwc.getGame().getPieces());
+
+    for (int[] move : selectedMoves) {
+      if (move[0] == xHere && move[1] == yHere) {
+        System.out.println("Move is legal.");
+        return true;
+      }
+    }
+    System.out.println("Move is NOT legal.");
+    return false;
   }
 
   /**
@@ -77,7 +109,29 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * correct location.
    */
   private void moveThePieceLocally() {
+    GameWindowController gwc = mySquare.getParent();
+    //int[] positionHere = new int[]{ mySquare.getX(), mySquare.getY() };
+    //int[] positionThere = new int[]{ gwc.getSelectedX(), gwc.getSelectedY() };
+    Piece pieceHere = mySquare.getPiece();
+    Piece pieceThere = gwc.getSelectedPiece();
 
+    // Remove the piece here from the GameWindowController and this square.
+    System.out.println("Pieces on board before move: " + gwc.getGame().getPieces().size());
+    gwc.getGame()
+       .getPieces()
+       .remove(pieceHere);
+    mySquare.removePiece();
+    mySquare.setPiece(pieceThere);
+
+    // Set the piece's new position
+    pieceThere.setX(mySquare.getX());
+    pieceThere.setY(mySquare.getY());
+
+    // Unset the GameWindowControllers selected* variables.
+    gwc.setSelectedX(-1);
+    gwc.setSelectedY(-1);
+    gwc.setSelectedPiece(null);
+    System.out.println("Pieces on board after move: " + gwc.getGame().getPieces().size());
   }
 
   /**

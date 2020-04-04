@@ -175,7 +175,11 @@ public abstract class Piece {
 
   @Override
   public String toString() {
-    return String.format("<%s (%s,%s)>", this.getClass().getName(), x, y);
+    return String.format(
+        "<%s %s (%s,%s)>",
+        isWhite ? "White" : "Black",
+        this.getClass().getSimpleName(),
+        x, y);
   }
 
   //----- Setters -----//

@@ -30,7 +30,9 @@ public class Square {
   //----- Methods -----//
   public void removePiece() {
     piece = null;
-    vbox.getChildren().removeAll();
+    System.out.println("Number of children before removal: " + vbox.getChildren().size());
+    vbox.getChildren().clear();
+    System.out.println("Number of children after removal: " + vbox.getChildren().size());
   }
 
   //----- Setters -----//
