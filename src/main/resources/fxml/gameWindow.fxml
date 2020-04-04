@@ -32,14 +32,14 @@
             <VBox id="rowIndicator0" styleClass="rowIndicator">
                 <Label text="8" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq00" styleClass="whiteSquare"/>
-            <VBox id="sq01" styleClass="blackSquare"/>
-            <VBox id="sq02" styleClass="whiteSquare"/>
-            <VBox id="sq03" styleClass="blackSquare"/>
-            <VBox id="sq04" styleClass="whiteSquare"/>
-            <VBox id="sq05" styleClass="blackSquare"/>
-            <VBox id="sq06" styleClass="whiteSquare"/>
-            <VBox id="sq07" styleClass="blackSquare"/>
+            <VBox fx:id="sq00" styleClass="whiteSquare"/>
+            <VBox fx:id="sq01" styleClass="blackSquare"/>
+            <VBox fx:id="sq02" styleClass="whiteSquare"/>
+            <VBox fx:id="sq03" styleClass="blackSquare"/>
+            <VBox fx:id="sq04" styleClass="whiteSquare"/>
+            <VBox fx:id="sq05" styleClass="blackSquare"/>
+            <VBox fx:id="sq06" styleClass="whiteSquare"/>
+            <VBox fx:id="sq07" styleClass="blackSquare"/>
             <VBox id="rowIndicatorLeft0" styleClass="rowIndicator"/>
         </HBox>
 
@@ -47,14 +47,14 @@
             <VBox id="rowIndicator1" styleClass="rowIndicator">
                 <Label text="7" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq10" styleClass="blackSquare"/>
-            <VBox id="sq11" styleClass="whiteSquare"/>
-            <VBox id="sq12" styleClass="blackSquare"/>
-            <VBox id="sq13" styleClass="whiteSquare"/>
-            <VBox id="sq14" styleClass="blackSquare"/>
-            <VBox id="sq15" styleClass="whiteSquare"/>
-            <VBox id="sq16" styleClass="blackSquare"/>
-            <VBox id="sq17" styleClass="whiteSquare"/>
+            <VBox fx:id="sq10" styleClass="blackSquare"/>
+            <VBox fx:id="sq11" styleClass="whiteSquare"/>
+            <VBox fx:id="sq12" styleClass="blackSquare"/>
+            <VBox fx:id="sq13" styleClass="whiteSquare"/>
+            <VBox fx:id="sq14" styleClass="blackSquare"/>
+            <VBox fx:id="sq15" styleClass="whiteSquare"/>
+            <VBox fx:id="sq16" styleClass="blackSquare"/>
+            <VBox fx:id="sq17" styleClass="whiteSquare"/>
             <VBox id="rowIndicatorLeft1" styleClass="rowIndicator"/>
         </HBox>
 
@@ -62,14 +62,14 @@
             <VBox id="rowIndicator2" styleClass="rowIndicator">
                 <Label text="6" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq20" styleClass="whiteSquare"/>
-            <VBox id="sq21" styleClass="blackSquare"/>
-            <VBox id="sq22" styleClass="whiteSquare"/>
-            <VBox id="sq23" styleClass="blackSquare"/>
-            <VBox id="sq24" styleClass="whiteSquare"/>
-            <VBox id="sq25" styleClass="blackSquare"/>
-            <VBox id="sq26" styleClass="whiteSquare"/>
-            <VBox id="sq27" styleClass="blackSquare"/>
+            <VBox fx:id="sq20" styleClass="whiteSquare"/>
+            <VBox fx:id="sq21" styleClass="blackSquare"/>
+            <VBox fx:id="sq22" styleClass="whiteSquare"/>
+            <VBox fx:id="sq23" styleClass="blackSquare"/>
+            <VBox fx:id="sq24" styleClass="whiteSquare"/>
+            <VBox fx:id="sq25" styleClass="blackSquare"/>
+            <VBox fx:id="sq26" styleClass="whiteSquare"/>
+            <VBox fx:id="sq27" styleClass="blackSquare"/>
             <VBox id="rowIndicatorLeft2" styleClass="rowIndicator"/>
         </HBox>
 
@@ -77,14 +77,14 @@
             <VBox id="rowIndicator3" styleClass="rowIndicator">
                 <Label text="5" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq30" styleClass="blackSquare"/>
-            <VBox id="sq31" styleClass="whiteSquare"/>
-            <VBox id="sq32" styleClass="blackSquare"/>
-            <VBox id="sq33" styleClass="whiteSquare"/>
-            <VBox id="sq34" styleClass="blackSquare"/>
-            <VBox id="sq35" styleClass="whiteSquare"/>
-            <VBox id="sq36" styleClass="blackSquare"/>
-            <VBox id="sq37" styleClass="whiteSquare"/>
+            <VBox fx:id="sq30" styleClass="blackSquare"/>
+            <VBox fx:id="sq31" styleClass="whiteSquare"/>
+            <VBox fx:id="sq32" styleClass="blackSquare"/>
+            <VBox fx:id="sq33" styleClass="whiteSquare"/>
+            <VBox fx:id="sq34" styleClass="blackSquare"/>
+            <VBox fx:id="sq35" styleClass="whiteSquare"/>
+            <VBox fx:id="sq36" styleClass="blackSquare"/>
+            <VBox fx:id="sq37" styleClass="whiteSquare"/>
             <VBox id="rowIndicatorLeft3" styleClass="rowIndicator"/>
         </HBox>
 
@@ -92,14 +92,14 @@
             <VBox id="rowIndicator4" styleClass="rowIndicator">
                 <Label text="4" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq40" styleClass="whiteSquare"/>
-            <VBox id="sq41" styleClass="blackSquare"/>
-            <VBox id="sq42" styleClass="whiteSquare"/>
-            <VBox id="sq43" styleClass="blackSquare"/>
-            <VBox id="sq44" styleClass="whiteSquare"/>
-            <VBox id="sq45" styleClass="blackSquare"/>
-            <VBox id="sq46" styleClass="whiteSquare"/>
-            <VBox id="sq47" styleClass="blackSquare"/>
+            <VBox fx:id="sq40" styleClass="whiteSquare"/>
+            <VBox fx:id="sq41" styleClass="blackSquare"/>
+            <VBox fx:id="sq42" styleClass="whiteSquare"/>
+            <VBox fx:id="sq43" styleClass="blackSquare"/>
+            <VBox fx:id="sq44" styleClass="whiteSquare"/>
+            <VBox fx:id="sq45" styleClass="blackSquare"/>
+            <VBox fx:id="sq46" styleClass="whiteSquare"/>
+            <VBox fx:id="sq47" styleClass="blackSquare"/>
             <VBox id="rowIndicatorLeft4" styleClass="rowIndicator"/>
         </HBox>
 
@@ -107,14 +107,14 @@
             <VBox id="rowIndicator5" styleClass="rowIndicator">
                 <Label text="3" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq50" styleClass="blackSquare"/>
-            <VBox id="sq51" styleClass="whiteSquare"/>
-            <VBox id="sq52" styleClass="blackSquare"/>
-            <VBox id="sq53" styleClass="whiteSquare"/>
-            <VBox id="sq54" styleClass="blackSquare"/>
-            <VBox id="sq55" styleClass="whiteSquare"/>
-            <VBox id="sq56" styleClass="blackSquare"/>
-            <VBox id="sq57" styleClass="whiteSquare"/>
+            <VBox fx:id="sq50" styleClass="blackSquare"/>
+            <VBox fx:id="sq51" styleClass="whiteSquare"/>
+            <VBox fx:id="sq52" styleClass="blackSquare"/>
+            <VBox fx:id="sq53" styleClass="whiteSquare"/>
+            <VBox fx:id="sq54" styleClass="blackSquare"/>
+            <VBox fx:id="sq55" styleClass="whiteSquare"/>
+            <VBox fx:id="sq56" styleClass="blackSquare"/>
+            <VBox fx:id="sq57" styleClass="whiteSquare"/>
             <VBox id="rowIndicatorLeft5" styleClass="rowIndicator"/>
         </HBox>
 
@@ -122,14 +122,14 @@
             <VBox id="rowIndicator6" styleClass="rowIndicator">
                 <Label text="2" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq60" styleClass="whiteSquare"/>
-            <VBox id="sq61" styleClass="blackSquare"/>
-            <VBox id="sq62" styleClass="whiteSquare"/>
-            <VBox id="sq63" styleClass="blackSquare"/>
-            <VBox id="sq64" styleClass="whiteSquare"/>
-            <VBox id="sq65" styleClass="blackSquare"/>
-            <VBox id="sq66" styleClass="whiteSquare"/>
-            <VBox id="sq67" styleClass="blackSquare"/>
+            <VBox fx:id="sq60" styleClass="whiteSquare"/>
+            <VBox fx:id="sq61" styleClass="blackSquare"/>
+            <VBox fx:id="sq62" styleClass="whiteSquare"/>
+            <VBox fx:id="sq63" styleClass="blackSquare"/>
+            <VBox fx:id="sq64" styleClass="whiteSquare"/>
+            <VBox fx:id="sq65" styleClass="blackSquare"/>
+            <VBox fx:id="sq66" styleClass="whiteSquare"/>
+            <VBox fx:id="sq67" styleClass="blackSquare"/>
             <VBox id="rowIndicatorLeft6" styleClass="rowIndicator"/>
         </HBox>
 
@@ -137,14 +137,14 @@
             <VBox id="rowIndicator7" styleClass="rowIndicator">
                 <Label text="1" styleClass="indicatorText"/>
             </VBox>
-            <VBox id="sq70" styleClass="blackSquare"/>
-            <VBox id="sq71" styleClass="whiteSquare"/>
-            <VBox id="sq72" styleClass="blackSquare"/>
-            <VBox id="sq73" styleClass="whiteSquare"/>
-            <VBox id="sq74" styleClass="blackSquare"/>
-            <VBox id="sq75" styleClass="whiteSquare"/>
-            <VBox id="sq76" styleClass="blackSquare"/>
-            <VBox id="sq77" styleClass="whiteSquare"/>
+            <VBox fx:id="sq70" styleClass="blackSquare"/>
+            <VBox fx:id="sq71" styleClass="whiteSquare"/>
+            <VBox fx:id="sq72" styleClass="blackSquare"/>
+            <VBox fx:id="sq73" styleClass="whiteSquare"/>
+            <VBox fx:id="sq74" styleClass="blackSquare"/>
+            <VBox fx:id="sq75" styleClass="whiteSquare"/>
+            <VBox fx:id="sq76" styleClass="blackSquare"/>
+            <VBox fx:id="sq77" styleClass="whiteSquare"/>
             <VBox id="rowIndicatorLeft7" styleClass="rowIndicator"/>
         </HBox>
 
