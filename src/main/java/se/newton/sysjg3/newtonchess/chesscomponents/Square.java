@@ -14,6 +14,7 @@ public class Square {
   private VBox vbox;
   private Square[][] allSquares;
   private GameWindowController parent;
+  int x, y;
 
   //----- Constructors -----//
   public Square(VBox vbox) {
@@ -50,6 +51,14 @@ public class Square {
     this.parent = parent;
   }
 
+  public void setX(int x) {
+    this.x = x;
+  }
+
+  public void setY(int y) {
+    this.y = y;
+  }
+
   //----- Getters -----//
   public Piece getPiece() {
     return piece;
@@ -65,5 +74,13 @@ public class Square {
 
   public GameWindowController getParent() {
     return parent;
+  }
+
+  public int getX() {
+    return x;
+  }
+
+  public int getY() {
+    return y;
   }
 }

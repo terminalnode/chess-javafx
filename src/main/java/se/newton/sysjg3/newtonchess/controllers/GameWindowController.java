@@ -45,7 +45,10 @@ public class GameWindowController extends GenericController {
     // Reference to self is used to coordinate things like selectedPiece, selectedX, selectedY.
     for (int x = 0; x < 8; x++) {
       for (int y = 0; y < 8; y++) {
-        squares[y][x].setAllSquares(squares);
+        Square sq = squares[y][x];
+        sq.setAllSquares(squares);
+        sq.setX(x);
+        sq.setY(y);
       }
     }
   }

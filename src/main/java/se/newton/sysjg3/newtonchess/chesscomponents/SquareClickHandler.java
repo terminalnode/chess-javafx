@@ -20,6 +20,11 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
     Piece pieceHere = mySquare.getPiece();
     Piece selectedPiece = mySquare.getParent().getSelectedPiece();
 
+    // Sanity check
+    System.out.println(
+        String.format("Hello, I'm (%s,%s) and I contain %s.",
+            mySquare.getX(), mySquare.getY(), pieceHere));
+
     // If neither this nor the last clicked box contained a piece, we're not interested.
     if (pieceHere == null && selectedPiece == null) {
       // Do nothing
