@@ -1,12 +1,12 @@
 package se.newton.sysjg3.newtonchess.api.retrofitservices;
 
-import com.example.newtonchess.api.entities.PlayerEntity;
-import com.example.newtonchess.api.entities.TokenEntity;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import se.newton.sysjg3.newtonchess.api.entities.PlayerEntity;
+import se.newton.sysjg3.newtonchess.api.entities.TokenEntity;
 
 public interface LoginService {
   @POST("login")

@@ -4,6 +4,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
+import se.newton.sysjg3.newtonchess.api.entities.MoveEntity;
 import se.newton.sysjg3.newtonchess.api.retrofitservices.RetrofitHelper;
 
 public class ApiGame {
@@ -13,8 +14,8 @@ public class ApiGame {
         .getAllGames(token);
   }
 
-  public static <MoveEntity> Call<MoveEntity> makeMove(String token, long gameId, MoveEntity move) {
-    return (Call<MoveEntity>) RetrofitHelper
+  public static Call<MoveEntity> makeMove(String token, long gameId, MoveEntity move) {
+    return RetrofitHelper
         .getGameService()
         .makeMove(token, gameId, move);
   }

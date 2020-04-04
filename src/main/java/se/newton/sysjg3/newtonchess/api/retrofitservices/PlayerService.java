@@ -1,7 +1,5 @@
 package se.newton.sysjg3.newtonchess.api.retrofitservices;
 
-import com.example.newtonchess.api.entities.PlayerEntity;
-
 import java.util.List;
 
 import retrofit2.Call;
@@ -10,6 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import se.newton.sysjg3.newtonchess.api.entities.PlayerEntity;
 
 public interface PlayerService {
   @GET("players")

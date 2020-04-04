@@ -1,7 +1,6 @@
 package se.newton.sysjg3.newtonchess.api.retrofitservices;
 
-import com.example.newtonchess.api.entities.GameEntity;
-import com.example.newtonchess.api.entities.MoveEntity;
+
 
 import java.util.List;
 
@@ -11,6 +10,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
+import se.newton.sysjg3.newtonchess.api.entities.MoveEntity;
 
 /**
  * Retrofit service interface connecting to the /api/games endpoint.

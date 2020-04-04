@@ -21,8 +21,8 @@
                 <PasswordField fx:id="password" ></PasswordField>
             </HBox>
             <HBox>
-                <Button fx:id="logIn"  text="Log In"></Button>
-                <Button fx:id="signUp"  text = "Sign up"></Button>
+                <Button fx:id="logInButton"  text="Log In"></Button>
+                <Button fx:id="signUpButton"  text = "Sign up"></Button>
             </HBox>
         </VBox>
     </bottom>
