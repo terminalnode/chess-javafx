@@ -19,13 +19,13 @@ public class GameWindowController extends GenericController {
   @FXML VBox sq60, sq61, sq62, sq63, sq64, sq65, sq66, sq67;
   @FXML VBox sq70, sq71, sq72, sq73, sq74, sq75, sq76, sq77;
   private Square[][] squares;
-  Piece lastPiece;
+  Piece selectedPiece;
   int selectedX, selectedY;
 
   @FXML
   protected void initialize() {
     // Initialize lastPiece to null and selectedX/Y to -1 (nothing selected)
-    lastPiece = null;
+    selectedPiece = null;
     selectedX = -1;
     selectedY = -1;
 
@@ -65,8 +65,8 @@ public class GameWindowController extends GenericController {
   }
 
   //----- Setters -----//
-  public void setLastPiece(Piece lastPiece) {
-    this.lastPiece = lastPiece;
+  public void setSelectedPiece(Piece selectedPiece) {
+    this.selectedPiece = selectedPiece;
   }
 
   public void setSelectedX(int selectedX) {
@@ -78,8 +78,8 @@ public class GameWindowController extends GenericController {
   }
 
   //----- Getters -----//
-  public Piece getLastPiece() {
-    return lastPiece;
+  public Piece getSelectedPiece() {
+    return selectedPiece;
   }
 
   public int getSelectedX() {
