@@ -37,7 +37,7 @@
 
 .indicatorText {
   -fx-font:             bold 18px "Arial";
-  -fx-text-fill:        #F5DEB3;
+  -fx-text-fill:        #8B4513;
 }
 
 .blackSquare {
@@ -45,7 +45,7 @@
 	-fx-max-width:        70px;
 	-fx-min-height:       70px;
 	-fx-max-height:       70px;
-  -fx-background-color: #000000;
+  -fx-background-color: #8B4513;
   -fx-alignment:        center;
 }
 
@@ -54,6 +54,6 @@
 	-fx-max-width:        70px;
 	-fx-min-height:       70px;
 	-fx-max-height:       70px;
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: #DEB887;
   -fx-alignment:        center;
 }

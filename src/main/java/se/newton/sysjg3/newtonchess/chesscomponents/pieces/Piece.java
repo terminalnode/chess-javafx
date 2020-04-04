@@ -1,7 +1,10 @@
 package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -18,6 +21,7 @@ public abstract class Piece {
   private boolean moved;
   private ImageView pieceGraphic;
   private final int imageSize = 70; // defines the max height and width of an imageview
+  DropShadow shadow;
 
   //----- Constructor ----//
   Piece() {
@@ -31,6 +35,13 @@ public abstract class Piece {
     this.moved = false;
     this.isWhite = isWhite;
     this.pieceGraphic = null;
+    shadow = new DropShadow();
+    shadow.setSpread(0.0001);
+    if (isWhite) {
+      shadow.setColor(Color.BLACK);
+    } else {
+      shadow.setColor(Color.WHITE);
+    }
   }
 
 
@@ -221,6 +232,7 @@ public abstract class Piece {
           true,
           true);
       pieceGraphic = new ImageView(image);
+      pieceGraphic.setEffect(shadow);
     }
 
     return pieceGraphic;
