@@ -10,14 +10,15 @@ import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
  * @author Alexander Rundberg
  */
 public class Square {
-  Piece piece;
-  VBox vbox;
-  Square[][] allSquares;
-  GameWindowController parent;
+  private Piece piece;
+  private VBox vbox;
+  private Square[][] allSquares;
+  private GameWindowController parent;
 
   //----- Constructors -----//
   public Square(VBox vbox) {
     this.vbox = vbox;
+    this.vbox.setOnMouseClicked(new SquareClickHandler(this));
     piece = null;
     allSquares = null;
     parent = null;
