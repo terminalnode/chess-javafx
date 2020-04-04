@@ -1,0 +1,11 @@
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #770077;
+ }
+
+
+.header-section Label {
+    -fx-text-fill: #ffffff;
+    -fx-padding: 15px;
+}

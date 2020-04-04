@@ -14,6 +14,7 @@ public class Main extends Application {
 
   @Override
   public void start(Stage mainWindow) throws Exception {
+    System.out.println("Starting Chess Application!");
     // First window must be loaded manually, other windows will use replaceWindow from HelperMethods.
     FXMLLoader loader = HelperMethods.getLoader(HelperMethods.loginWindowFXML);
     Parent root = loader.load();
