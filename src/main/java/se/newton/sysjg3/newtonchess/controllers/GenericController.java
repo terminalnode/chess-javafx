@@ -1,29 +1,38 @@
 package se.newton.sysjg3.newtonchess.controllers;
 
-import javafx.scene.Scene;
+import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
+import se.newton.sysjg3.newtonchess.api.entities.TokenEntity;
 
 /**
  * A generic controller from which all of our other controllers will inherit.
  * This allows us to add fields that are shared between all controllers and
  * thus we can pass around data much easier.
  *
- * @author Alexander Rundberg:w
+ * @author Alexander Rundberg
  */
 public abstract class GenericController {
-  Scene scene;
+  TokenEntity token;
+  GameEntity game;
 
+  /**
+   * Default constructor.
+   * By default all the fields in the class are null, they can be set through
+   * setter methods or the inheritSettings method.
+   */
   GenericController() {
-    scene = null;
+    token = null;
+    game = null;
   }
 
   /**
    * Look at the settings/fields of another controller and inherit those settings.
    * Very useful for passing around things like tokens and so on that needs to
    * persist throughout the session.
-   * @param controller
+   * @param controller The controller from which to inherit settings.
    */
   public void inheritSettings(GenericController controller) {
-    scene = controller.getScene();
+    token = controller.getToken();
+    game = controller.getGame();
   }
 
   /**
@@ -36,13 +45,20 @@ public abstract class GenericController {
   }
 
   //----- Setters -----//
-  public void setScene(Scene scene) {
-    this.scene = scene;
+  public void setToken(TokenEntity token) {
+    this.token = token;
+  }
+
+  public void setGame(GameEntity game) {
+    this.game = game;
   }
 
   //----- Getters -----//
+  public TokenEntity getToken() {
+    return token;
+  }
 
-  public Scene getScene() {
-    return scene;
+  public GameEntity getGame() {
+    return game;
   }
 }
