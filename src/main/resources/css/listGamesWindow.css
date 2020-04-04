@@ -1,12 +1,12 @@
 .root {
     -fx-font-size: 14px;
     -fx-font-family: sans-serif;
-    -fx-text-color: #ffffff
+    -fx-text-color: #000000
     -fx-background-color #cc5500;
  }
 
 .HBox {
-    -fx-background-color: #151680;
+    -fx-background-color: #000000;
     -fx-min-width: 200px;
     -fx-pref-width: 200px;
     -fx-max-width: 200px;

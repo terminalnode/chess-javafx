@@ -15,7 +15,8 @@ import java.util.List;
 
 public class ListGamesWindowController extends GenericController {
 
-  public VBox gameListContainer;
+
+  @FXML public VBox gameListContainer;
 
   private List<GameEntity> listOfGames;
 
@@ -24,12 +25,12 @@ public class ListGamesWindowController extends GenericController {
   protected void initialize() {
     System.out.println("Initializing game's list");
 
-
   }
+
   @FXML
   @Override
   public void postInitialization() {
-   gameListContainer = updateGameListContainer();
+   updateGameListContainer();
   }
 
   @FXML
@@ -58,8 +59,8 @@ public class ListGamesWindowController extends GenericController {
     }
   }
   @FXML
-  private VBox updateGameListContainer() {
-    gameListContainer = new VBox();
+  private void updateGameListContainer() {
+    gameListContainer.getChildren().removeAll();
     updateListOfGames();
 
     for (GameEntity game : listOfGames) {
@@ -68,8 +69,8 @@ public class ListGamesWindowController extends GenericController {
 
       gameListContainer.getChildren().add(gameBox);
     }
-    return gameListContainer;
   }
+
   @FXML
   private HBox getGameBox(GameEntity game) {
     String opponentsNameString = token.getPlayer().getName().equals(game.getWhitePlayer().getName()) ?
@@ -79,6 +80,19 @@ public class ListGamesWindowController extends GenericController {
 
     Text opponentName = new Text(opponentsNameString);
     Button playButton = new Button("Play");
+    playButton.setOnMouseClicked(mouseEvent -> {
+      this.game = game;
+      String gameWindowTitle = game.getWhitePlayer().getName().equals(token.getPlayer().getName()) ?
+          game.getWhitePlayer().getName() + " vs " + game.getBlackPlayer().getName() :
+          game.getBlackPlayer().getName() + " vs " + game.getWhitePlayer().getName();
+      try {
+        HelperMethods.replaceScene(HelperMethods.gameWindowFXML, gameWindowTitle ,mouseEvent, this);
+      }
+      catch (IOException ioe) {
+        ioe.printStackTrace();
+        System.exit(1);
+      }
+    });
 
     gameBox.getChildren().add(opponentName);
     gameBox.getChildren().add(playButton);
