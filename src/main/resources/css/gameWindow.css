@@ -4,6 +4,32 @@
   -fx-background-color: #770077;
  }
 
+#gameInfo {
+	-fx-min-width:        250px;
+	-fx-max-width:        250px;
+	-fx-min-height:       600px;
+	-fx-max-height:       600px;
+  -fx-background-color: #A0522D;
+	-fx-alignment:        top_center;
+}
+
+#newtonChessLabel {
+  -fx-text-fill:  #FFFFFF;
+  -fx-font:       bold 30px "Arial";
+}
+
+.gameInfoContentText {
+  -fx-text-fill:  #FFFFFF;
+  -fx-font:       bold 20px "Arial";
+}
+
+.gameInfoVerticalSpace {
+	-fx-min-height:       20px;
+	-fx-max-height:       20px;
+	-fx-min-width:        20px;
+	-fx-max-width:        20px;
+}
+
 .header-section Label {
   -fx-text-fill:  #FFFFFF;
   -fx-padding:    15px;

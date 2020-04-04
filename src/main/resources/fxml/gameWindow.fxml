@@ -6,14 +6,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            id="gameWindow"
-            styleClass="window"
-            stylesheets="@/css/gameWindow.css"
-            fx:controller="se.newton.sysjg3.newtonchess.controllers.GameWindowController"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Circle?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      id="gameWindow"
+      styleClass="window"
+      stylesheets="@/css/gameWindow.css"
+      fx:controller="se.newton.sysjg3.newtonchess.controllers.GameWindowController">
 
+    <!--/\/\/\/\/\/\/\/\/\/\/\/\-->
+    <!-- Game info starts here! -->
+    <!--\/\/\/\/\/\/\/\/\/\/\/\/-->
+    <VBox id="gameInfo">
+        <Label id="newtonChessLabel" text="Newton Chess"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <HBox styleClass="gameInfoChild" alignment="CENTER">
+            <Circle fx:id="whoseTurnCircle" radius="10"/>
+            <HBox maxWidth="15" minWidth="15"/>
+            <Label fx:id="whoseTurnLabel" styleClass="gameInfoContentText" text="Black's turn"/>
+        </HBox>
+
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <HBox styleClass="gameInfoChild" alignment="CENTER">
+            <Label text="Number of turns: " styleClass="gameInfoContentText"/>
+            <Label fx:id="numberOfTurns" text="34" styleClass="gameInfoContentText"/>
+        </HBox>
+
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoChild" alignment="CENTER">
+            <Label text="Playing against" styleClass="gameInfoContentText"/>
+            <Label text="The Corona Virus" styleClass="gameInfoContentText"/>
+        </VBox>
+
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <Button fx:id="refreshButton" text="Refresh"/>
+
+        <VBox styleClass="gameInfoVerticalSpace"/>
+        <Button fx:id="backButton" text="Back to game list"/>
+    </VBox>
+
+    <!--/\/\/\/\/\/\/\/\/\/\/\/\/-->
+    <!-- Chessboard starts here! -->
+    <!--\/\/\/\/\/\/\/\/\/\/\/\/\-->
     <VBox id="chessBoard">
         <HBox id="horizontalIndicatorRowBottom">
             <VBox id="cornerIndicatorTL" styleClass="cornerIndicator"/>
@@ -177,4 +219,4 @@
             <VBox id="cornerIndicatorBR" styleClass="cornerIndicator"/>
         </HBox>
     </VBox>
-</VBox>
+</HBox>
