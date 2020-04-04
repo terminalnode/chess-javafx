@@ -50,9 +50,9 @@ public class MainWindowController extends GenericController {
       @EverythingIsNonNull
       public void onResponse(Call<TokenEntity> call, Response<TokenEntity> response) {
         if (response.code() == 200) {
-          handleSuccessfulLogin(response, );
+          handleSuccessfulLogin(response);
         } else {
-          handleUnsuccessfulLogin(response, );
+          handleUnsuccessfulLogin(response);
         }
         enableButtons();
       }
@@ -64,7 +64,7 @@ public class MainWindowController extends GenericController {
 
 
       // TODO make API call and use replace scene here.
-    }
+    });
   }
 
   @FXML
@@ -82,6 +82,15 @@ public class MainWindowController extends GenericController {
   private void enableButtons() {
     signUpButton.setDisable(false);
     logInButton.setDisable(false);
+
+  }
+
+ private void handleSuccessfulLogin(Response<TokenEntity> response) {
+    //HelperMethods.replaceScene(HelperMethods.listGamesWindowFXML, );
+
+  }
+
+  private void handleUnsuccessfulLogin(Response<TokenEntity> response) {
 
   }
 
