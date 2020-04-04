@@ -19,9 +19,16 @@ public class GameWindowController extends GenericController {
   @FXML VBox sq60, sq61, sq62, sq63, sq64, sq65, sq66, sq67;
   @FXML VBox sq70, sq71, sq72, sq73, sq74, sq75, sq76, sq77;
   private Square[][] squares;
+  Piece lastPiece;
+  int selectedX, selectedY;
 
   @FXML
   protected void initialize() {
+    // Initialize lastPiece to null and selectedX/Y to -1 (nothing selected)
+    lastPiece = null;
+    selectedX = -1;
+    selectedY = -1;
+
     // Instantiate all the squares
     squares = new Square[][]{
         { new Square(sq00), new Square(sq01), new Square(sq02), new Square(sq03), new Square(sq04), new Square(sq05), new Square(sq06), new Square(sq07) },
@@ -34,7 +41,8 @@ public class GameWindowController extends GenericController {
         { new Square(sq70), new Square(sq71), new Square(sq72), new Square(sq73), new Square(sq74), new Square(sq75), new Square(sq76), new Square(sq77) }
     };
 
-    // Loop over the squares, giving each of them a copy of the list of squares
+    // Loop over the squares, giving each of them a copy of the list of squares as well as a reference to self
+    // Reference to self is used to coordinate things like selectedPiece, selectedX, selectedY.
     for (int x = 0; x < 8; x++) {
       for (int y = 0; y < 8; y++) {
         squares[y][x].setAllSquares(squares);
@@ -50,7 +58,35 @@ public class GameWindowController extends GenericController {
     for (Piece piece : game.getPieces()) {
       int x = piece.getX();
       int y = piece.getY();
-      squares[y][x].setPiece(piece);
+      Square sq = squares[y][x];
+      sq.setPiece(piece);
+      sq.setParent(this);
     }
+  }
+
+  //----- Setters -----//
+  public void setLastPiece(Piece lastPiece) {
+    this.lastPiece = lastPiece;
+  }
+
+  public void setSelectedX(int selectedX) {
+    this.selectedX = selectedX;
+  }
+
+  public void setSelectedY(int selectedY) {
+    this.selectedY = selectedY;
+  }
+
+  //----- Getters -----//
+  public Piece getLastPiece() {
+    return lastPiece;
+  }
+
+  public int getSelectedX() {
+    return selectedX;
+  }
+
+  public int getSelectedY() {
+    return selectedY;
   }
 }
