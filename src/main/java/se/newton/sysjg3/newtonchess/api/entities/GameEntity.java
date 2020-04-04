@@ -1,4 +1,4 @@
-package se.newton.sysjg3.newtonchess.entities;
+package se.newton.sysjg3.newtonchess.api.entities;
 
 import com.google.gson.annotations.SerializedName;
 

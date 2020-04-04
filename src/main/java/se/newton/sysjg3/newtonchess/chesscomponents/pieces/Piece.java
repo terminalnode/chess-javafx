@@ -1,5 +1,7 @@
 package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public abstract class Piece {
 
   //----- Abstract methods ----//
   public abstract List<int[]> getMoves(List<Piece> pieces);
-  public abstract int getDrawableId();
+  public abstract Image getDrawable();
   public abstract PieceType getPieceType();
 
 

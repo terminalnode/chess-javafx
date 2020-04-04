@@ -2,6 +2,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <BorderPane id="mainWindow"
             styleClass="mainWindow"
             stylesheets="@/css/loginWindow.css"
@@ -12,9 +15,15 @@
         <Label styleClass="header-section"  id="header-text" text="Newton Chess"></Label>
     </top>
     <bottom>
-        <HBox>
-            <Button fx:id="logIn"  text="Log In"></Button>
-            <Button fx:id="signUp"  text = "Sign up"></Button>
-        </HBox>
+        <VBox>
+            <HBox>
+                <TextField fx:id="userName" ></TextField>
+                <PasswordField fx:id="password" ></PasswordField>
+            </HBox>
+            <HBox>
+                <Button fx:id="logIn"  text="Log In"></Button>
+                <Button fx:id="signUp"  text = "Sign up"></Button>
+            </HBox>
+        </VBox>
     </bottom>
 </BorderPane>

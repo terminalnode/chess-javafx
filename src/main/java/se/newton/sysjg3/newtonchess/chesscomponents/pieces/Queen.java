@@ -1,7 +1,9 @@
 package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
-import com.example.newtonchess.R;
+import javafx.scene.image.Image;
+import se.newton.sysjg3.newtonchess.controllers.HelperMethods;
 
+import java.net.URL;
 import java.util.List;
 
 public class Queen extends Piece {
@@ -21,8 +23,10 @@ public class Queen extends Piece {
   }
 
   @Override
-  public int getDrawableId() {
-    return isWhite() ? R.drawable.wqueen : R.drawable.bqueen;
+  public Image getDrawable() {
+    URL imageUrl = isWhite() ?
+        HelperMethods.getRes("/drawable/wqueen.png") : HelperMethods.getRes("/drawable/bqueen.png");
+    return new Image(imageUrl.toExternalForm());
   }
 
   @Override

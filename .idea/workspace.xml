@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cc3880d-73a4-4193-8fff-3183bd5907e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/loginWindow.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/se/newton/sysjg3/newtonchess/controllers/MainWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/se/newton/sysjg3/newtonchess/controllers/MainWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/fxml/loginWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/fxml/loginWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/chesscomponents/pieces/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/controllers/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/controllers/MainWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/entities/ChallengeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/api/entities/ChallengeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/entities/GameEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/api/entities/GameEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/entities/PieceDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/entities/PlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/api/entities/PlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/entities/TokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/api/entities/TokenEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/loginWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/loginWindow.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,17 +63,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/se/newton/sysjg3/newtonchess/api/entities" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\resources" />
-      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\chesscomponents\pieces" />
-      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\entities" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\api\entities" />
+      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\api" />
+      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\api\retrofitservices" />
+      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\resources" />
+      <recent name="C:\Users\sebas\Documents\GitHub Projects\chess-javafx\src\main\java\se\newton\sysjg3\newtonchess\chesscomponents\pieces" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,7 +142,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
