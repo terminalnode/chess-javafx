@@ -11,24 +11,42 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+/**
+ * Various helper methods used throughout the app. Among other things it contains methods to get resources,
+ * replace the scene in the current window (so as not to open a new window),
+ */
 public class HelperMethods {
   // Window titles
-  public static final String loginWindowTitle = "Login Window";
+  public static final String loginWindowTitle = "Login";
+  public static final String listGamesWindowTitle = "Your Games";
 
   // FXML paths
   public static final String loginWindowFXML = "fxml/loginWindow.fxml";
+  public static final String listGamesWindowFXML = "fxml/listGamesWindow.fxml";
+  public static final String gameWindowFXML = "fxml/gameWindow.fxml";
 
   /**
-   * Retrieves a given resource.
+   * Retrieves the URL of a given resource.
    * @param fileName The resource we're retrieving.
    * @return A URL instance for the resource.
    */
   public static URL getRes(String fileName) {
-    return Thread.currentThread().getContextClassLoader().getResource(fileName);
+    return Thread
+        .currentThread()
+        .getContextClassLoader()
+        .getResource(fileName);
   }
 
+  /**
+   * Retrieves a given resource as an input stream. Useful for some (limited) applications.
+   * @param fileName The resource we're retrieving.
+   * @return An input stream containing the resource.
+   */
   public static InputStream getResAsStream(String fileName) {
-    return Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+    return Thread
+        .currentThread()
+        .getContextClassLoader()
+        .getResourceAsStream(fileName);
   }
 
   /**
