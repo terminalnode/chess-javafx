@@ -1,6 +1,9 @@
 package se.newton.sysjg3.newtonchess.api.entities;
 
 import com.google.gson.annotations.SerializedName;
+import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
+
+import java.util.List;
 
 /**
  * Entity class for deserializing GameEntities sent by the server.
@@ -31,9 +34,8 @@ public class GameEntity {
   @SerializedName("finished")
   private boolean finished;
 
-  //No good piece entity yet
-  //@SerializedName("pieces")
-  //List<Piece> pieces;
+  @SerializedName("pieces")
+  List<Piece> pieces;
 
   //----- Constructors -----//
   public GameEntity() {
@@ -74,6 +76,10 @@ public class GameEntity {
     this.finished = finished;
   }
 
+  public void setPieces(List<Piece> pieces) {
+    this.pieces = pieces;
+  }
+
   //----- Getters -----//
   public long getId() {
     return id;
@@ -97,5 +103,9 @@ public class GameEntity {
 
   public boolean isFinished() {
     return finished;
+  }
+
+  public List<Piece> getPieces() {
+    return pieces;
   }
 }
