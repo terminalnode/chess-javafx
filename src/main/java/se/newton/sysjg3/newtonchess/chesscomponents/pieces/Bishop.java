@@ -3,6 +3,7 @@ package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import se.newton.sysjg3.newtonchess.controllers.HelperMethods;
 
 import java.net.URL;
@@ -27,7 +28,7 @@ public class Bishop extends Piece {
   @Override
   public Image getDrawable() {
     URL imageUrl = isWhite() ?
-        HelperMethods.getRes("/drawable/wbishop.png") : HelperMethods.getRes("/drawable/bbishop.png");
+        HelperMethods.getRes("drawable/wbishop.png") : HelperMethods.getRes("drawable/bbishop.png");
     return new Image(imageUrl.toExternalForm());
   }
 

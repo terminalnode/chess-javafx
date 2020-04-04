@@ -1,6 +1,7 @@
 package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import se.newton.sysjg3.newtonchess.controllers.HelperMethods;
 
 import java.net.URL;
@@ -67,7 +68,7 @@ public class Pawn extends Piece {
   @Override
   public Image getDrawable() {
     URL imageUrl = isWhite() ?
-        HelperMethods.getRes("/drawable/wpawn.png") : HelperMethods.getRes("/drawable/bpawn.png");
+        HelperMethods.getRes("drawable/wpawn.png") : HelperMethods.getRes("drawable/bpawn.png");
     return new Image(imageUrl.toExternalForm());
   }
 

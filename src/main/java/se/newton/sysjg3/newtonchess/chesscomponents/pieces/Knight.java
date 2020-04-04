@@ -43,7 +43,7 @@ public class Knight extends Piece {
   @Override
   public Image getDrawable() {
     URL imageUrl = isWhite() ?
-        HelperMethods.getRes("/drawable/wknight.png") : HelperMethods.getRes("/drawable/bknight.png");
+        HelperMethods.getRes("drawable/wknight.png") : HelperMethods.getRes("drawable/bknight.png");
     return new Image(imageUrl.toExternalForm());
   }
 

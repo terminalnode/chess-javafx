@@ -1,6 +1,7 @@
 package se.newton.sysjg3.newtonchess.chesscomponents.pieces;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public abstract class Piece {
   private int internalId;
   private boolean isWhite;
   private boolean moved;
+  private ImageView pieceGraphic;
 
   //----- Constructor ----//
   Piece() {
@@ -26,6 +28,7 @@ public abstract class Piece {
     this.y = y;
     this.moved = false;
     this.isWhite = isWhite;
+    this.pieceGraphic = null;
   }
 
 
@@ -183,6 +186,10 @@ public abstract class Piece {
     isWhite = white;
   }
 
+  public void setPieceGraphic(ImageView pieceGraphic) {
+    this.pieceGraphic = pieceGraphic;
+  }
+
   //----- Getters -----//
   public int getX() {
     return x;
@@ -202,5 +209,12 @@ public abstract class Piece {
 
   public boolean isWhite() {
     return isWhite;
+  }
+
+  public ImageView getPieceGraphic() {
+    if (pieceGraphic == null) {
+      pieceGraphic = new ImageView(this.getDrawable());
+    }
+    return pieceGraphic;
   }
 }
