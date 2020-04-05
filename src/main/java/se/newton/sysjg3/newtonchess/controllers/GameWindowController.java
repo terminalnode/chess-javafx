@@ -36,6 +36,7 @@ public class GameWindowController extends GenericController {
   private int numberOfTurns;
   private boolean isWhitesTurn;
   private boolean isWhite;
+  private boolean isFinished;
 
   @FXML
   protected void initialize() {
@@ -111,6 +112,7 @@ public class GameWindowController extends GenericController {
     numberOfTurns = game.getTurnsTaken();
     isWhite = game.isGettingPlayerWhite();
     isWhitesTurn = game.isWhitesTurn();
+    isFinished = game.isFinished();
 
     // Place all the pieces in their respective squares
     for (Piece piece : game.getPieces()) {
@@ -121,8 +123,9 @@ public class GameWindowController extends GenericController {
     updateDisplay();
   }
 
-  private void incrementNumberOfTurns() {
+  public void incrementNumberOfTurns() {
     numberOfTurns++;
+    updateDisplay();
   }
 
   private void updateDisplay() {
@@ -130,9 +133,14 @@ public class GameWindowController extends GenericController {
     numberOfTurnsLabel.setText(Integer.toString(numberOfTurns));
 
     // Update label saying whose turn it is
-    if (isWhitesTurn) {
+    if (isFinished) {
+      whoseTurnCircle.setFill(Color.RED);
+      whoseTurnLabel.setText("Game finished!");
+
+    } else if (isWhitesTurn) {
       whoseTurnCircle.setFill(Color.WHITE);
       whoseTurnLabel.setText("White's turn");
+
     } else {
       whoseTurnCircle.setFill(Color.BLACK);
       whoseTurnLabel.setText("Black's turn");
@@ -164,6 +172,10 @@ public class GameWindowController extends GenericController {
     this.isWhite = isWhite;
   }
 
+  public void setFinished(boolean isFinished) {
+    this.isFinished = isFinished;
+  }
+
   //----- Getters -----//
   public Piece getSelectedPiece() {
     return selectedPiece;
@@ -187,5 +199,9 @@ public class GameWindowController extends GenericController {
 
   public boolean isWhite() {
     return isWhite;
+  }
+
+  public boolean isFinished() {
+    return isFinished;
   }
 }

@@ -27,21 +27,30 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
 
   @Override
   public void handle(MouseEvent event) {
+    if (controller.isWhite() != controller.isWhitesTurn() || controller.isFinished()) {
+      return; // The player can't play right now anyway
+    }
+
     Piece pieceHere = mySquare.getPiece();
     Piece selectedPiece = mySquare.getParent().getSelectedPiece();
     System.out.println(String.format("Hello, I'm (%s,%s) and I contain %s.", xHere, yHere, pieceHere));
 
+    // Check some conditions to make the process of deciding on an action a bit easier.
+    boolean noPieceHereNoPiecePreviously = pieceHere == null && selectedPiece == null;
+    boolean weHaveAPieceButPreviousSquareDidNot = pieceHere != null && selectedPiece == null;
+    boolean movingPieceIsMyColor = selectedPiece != null && selectedPiece.isWhite() == controller.isWhite();
+
     // If neither this nor the last clicked box contained a piece, we're not interested.
-    if (pieceHere == null && selectedPiece == null) {
-      // Do nothing
+    if (noPieceHereNoPiecePreviously) {
       return;
     }
 
     // Both squares are not null, so we will try to carry out some kind of action
-    if (pieceHere != null && selectedPiece == null) {
+    if (weHaveAPieceButPreviousSquareDidNot) {
       selectThisSquare();
 
     } else {
+      // See if move is legal, if it is make it and return
       if (checkIfMoveIsLegal()) {
         if (tryToMakeApiMove()) {
           moveThePieceLocally();
@@ -50,7 +59,7 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
       }
 
       // Move was not legal
-      selectUsIfWeHaveAPiece();
+      selectThisSquare();
     }
   }
 
@@ -60,16 +69,24 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    */
   private void selectThisSquare() {
     Piece thisPiece = mySquare.getPiece();
-    controller.setSelectedPiece(thisPiece);
-    controller.setSelectedX(thisPiece.getX());
-    controller.setSelectedY(thisPiece.getY());
+    if (thisPiece != null && thisPiece.isWhite() == controller.isWhite()) {
+      System.out.println("Selecting square");
+      controller.setSelectedPiece(thisPiece);
+      controller.setSelectedX(thisPiece.getX());
+      controller.setSelectedY(thisPiece.getY());
+    } else {
+      System.out.println("Deselecting square");
+      controller.setSelectedPiece(null);
+      controller.setSelectedX(-1);
+      controller.setSelectedY(-1);
+    }
 
     // Sanity check
     System.out.println(String.format(
         "Selected square is (%s,%s) %s",
-        thisPiece,
-        thisPiece.getX(),
-        thisPiece.getY()
+        mySquare.getPiece(),
+        mySquare.getX(),
+        mySquare.getY()
     ));
   }
 
@@ -79,6 +96,7 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    */
   private boolean checkIfMoveIsLegal() {
     Piece selectedPiece = controller.getSelectedPiece();
+
     List<int[]> selectedMoves = selectedPiece.getMoves(controller.getGame().getPieces());
 
     for (int[] move : selectedMoves) {
@@ -126,22 +144,8 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
     controller.setSelectedX(-1);
     controller.setSelectedY(-1);
     controller.setSelectedPiece(null);
+    controller.incrementNumberOfTurns();
     System.out.println("Pieces on board after move: " + controller.getGame().getPieces().size());
-  }
-
-  /**
-   * Runs when an attempted move wasn't legal. If this square contains a piece
-   * that piece will now be selected, if it does not then we will set selectedX,
-   * selectedY and selectedPiece in the controller to -1, -1 and null respectively
-   * to indicate that nothing is currently selected.
-   */
-  private void selectUsIfWeHaveAPiece() {
-    Piece pieceHere = mySquare.getPiece();
-    if (pieceHere != null) {
-      controller.setSelectedX(xHere);
-      controller.setSelectedY(yHere);
-      controller.setSelectedPiece(pieceHere);
-    }
   }
 
   //----- Setters -----//

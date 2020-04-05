@@ -20,7 +20,7 @@ public abstract class Piece {
   private boolean isWhite;
   private boolean moved;
   private ImageView pieceGraphic;
-  private final int imageSize = 70; // defines the max height and width of an imageview
+  private final int imageSize = 60; // defines the max height and width of an imageview
   DropShadow shadow;
 
   //----- Constructor ----//
@@ -160,9 +160,12 @@ public abstract class Piece {
 
     Piece pieceHere = pieceAtPosition(position, otherPieces);
     boolean blockedByPiece = pieceHere != null;
-    boolean blockedByOwnColor = blockedByPiece && pieceHere.isWhite() == isWhite();
+    boolean blockedByOwnColorOrKing = blockedByPiece && (
+        pieceHere.isWhite() == isWhite() ||
+        pieceHere.getPieceType() == PieceType.KING
+    );
 
-    if (blockedByOwnColor) {
+    if (blockedByOwnColorOrKing) {
       return false;
     } else if (blockedByPiece) {
       moves.add(position);
