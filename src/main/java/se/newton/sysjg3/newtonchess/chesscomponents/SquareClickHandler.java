@@ -145,6 +145,7 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
     controller.setSelectedY(-1);
     controller.setSelectedPiece(null);
     controller.incrementNumberOfTurns();
+    controller.setIsWhitesTurn(!controller.isWhitesTurn());
     System.out.println("Pieces on board after move: " + controller.getGame().getPieces().size());
   }
 

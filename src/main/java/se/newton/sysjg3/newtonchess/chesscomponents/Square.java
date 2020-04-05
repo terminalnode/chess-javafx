@@ -31,9 +31,7 @@ public class Square {
   //----- Methods -----//
   public void removePiece() {
     piece = null;
-    System.out.println("Number of children before removal: " + vbox.getChildren().size());
     vbox.getChildren().clear();
-    System.out.println("Number of children after removal: " + vbox.getChildren().size());
   }
 
   public void informListener() {

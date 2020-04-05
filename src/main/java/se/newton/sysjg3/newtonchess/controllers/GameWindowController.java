@@ -149,6 +149,8 @@ public class GameWindowController extends GenericController {
    * @param newGame The game entity with which to replace our old one.
    */
   private void insertGameInfo(GameEntity newGame) {
+    System.out.println("Updating game info!");
+
     // Set the game to the new game
     setGame(newGame);
     numberOfTurns = game.getTurnsTaken();
@@ -156,11 +158,20 @@ public class GameWindowController extends GenericController {
     isWhitesTurn = game.isWhitesTurn();
     isFinished = game.isFinished();
 
+    // Remove all pieces from the board
+    for (int x = 0; x < 8; x++) {
+      for (int y = 0; y < 8; y++) {
+        squares[y][x].removePiece();
+      }
+    }
+    System.out.println("All pieces empty!");
+
     // Place all the pieces in their respective squares
     for (Piece piece : game.getPieces()) {
       Square sq = squares[piece.getY()][piece.getX()];
       sq.setPiece(piece);
     }
+    System.out.println("All pieces set!");
 
     updateDisplay();
   }
@@ -180,6 +191,7 @@ public class GameWindowController extends GenericController {
    * - Update the text in the whoseTurnLabel
    */
   private void updateDisplay() {
+    System.out.println("Updating the display");
     // Update label saying how many turns have passed
     numberOfTurnsLabel.setText(Integer.toString(numberOfTurns));
 
