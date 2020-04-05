@@ -8,6 +8,8 @@
 
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       id="gameWindow"
@@ -19,7 +21,9 @@
     <!-- Game info starts here! -->
     <!--\/\/\/\/\/\/\/\/\/\/\/\/-->
     <VBox id="gameInfo">
+        <VBox styleClass="gameInfoVerticalSpace"/>
         <Label id="newtonChessLabel" text="Newton Chess"/>
+
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>
         <HBox styleClass="gameInfoChild" alignment="CENTER">
@@ -31,19 +35,28 @@
         <VBox styleClass="gameInfoVerticalSpace"/>
         <HBox styleClass="gameInfoChild" alignment="CENTER">
             <Label text="Number of turns: " styleClass="gameInfoContentText"/>
-            <Label fx:id="numberOfTurns" text="34" styleClass="gameInfoContentText"/>
+            <Label fx:id="numberOfTurnsLabel" text="34" styleClass="gameInfoContentText"/>
         </HBox>
 
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoChild" alignment="CENTER">
-            <Label text="Playing against" styleClass="gameInfoContentText"/>
-            <Label text="The Corona Virus" styleClass="gameInfoContentText"/>
+            <Label text="Playing as" styleClass="gameInfoContentText" />
+            <VBox fx:id="playerHorsie" alignment="CENTER">
+                <ImageView fitWidth="100" fitHeight="100">
+                    <Image url="@/drawable/wknight.png"/>
+                </ImageView>
+            </VBox>
         </VBox>
 
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>
+        <VBox styleClass="gameInfoChild" alignment="CENTER">
+            <Label text="Playing against" styleClass="gameInfoContentText"/>
+            <Label fx:id="opponentNameLabel" text="The Corona Virus" styleClass="gameInfoContentText"/>
+        </VBox>
+
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>
         <VBox styleClass="gameInfoVerticalSpace"/>

@@ -3,7 +3,10 @@ package se.newton.sysjg3.newtonchess.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
 import se.newton.sysjg3.newtonchess.chesscomponents.Square;
@@ -22,13 +25,17 @@ public class GameWindowController extends GenericController {
   @FXML VBox sq50, sq51, sq52, sq53, sq54, sq55, sq56, sq57;
   @FXML VBox sq60, sq61, sq62, sq63, sq64, sq65, sq66, sq67;
   @FXML VBox sq70, sq71, sq72, sq73, sq74, sq75, sq76, sq77;
+  @FXML Label whoseTurnLabel, numberOfTurnsLabel, opponentNameLabel;
   @FXML Button backButton, refreshButton;
-  @FXML Label whoseTurnLabel, numberOfTurns;
   @FXML Circle whoseTurnCircle;
+  @FXML VBox playerHorsie;
 
   private Square[][] squares;
   Piece selectedPiece;
   int selectedX, selectedY;
+  private int numberOfTurns;
+  private boolean isWhitesTurn;
+  private boolean isWhite;
 
   @FXML
   protected void initialize() {
@@ -61,6 +68,9 @@ public class GameWindowController extends GenericController {
         sq.informListener();
       }
     }
+
+    // Instantiate the imageview's used for white horse and black horse.
+    int imageSize = 80;
   }
 
   @Override
@@ -69,6 +79,24 @@ public class GameWindowController extends GenericController {
     // We actually want a null pointer exception here if the pieces are not set, that's a serious error.
     // We should inherit the game from the old controller through GenericController
     insertGameInfo(game);
+
+    // Set some values that won't change throughout the game
+    // Set player "playing as"-icon
+    String resourcePath = game.isGettingPlayerWhite() ?
+        "drawable/wknight.png" : "drawable/bknight.png";
+
+    Image playerImage = new Image(
+        HelperMethods.getRes(resourcePath).toExternalForm(),
+        100, 100, true, true
+    );
+    playerHorsie.getChildren().clear();
+    playerHorsie.getChildren().add(new ImageView(playerImage));
+
+    // Set opponent name
+    System.out.println(game.isGettingPlayerWhite());
+    String opponentName = game.isGettingPlayerWhite() ?
+        game.getBlackPlayer().getName() : game.getWhitePlayer().getName();
+    opponentNameLabel.setText(opponentName);
   }
 
   /**
@@ -78,11 +106,36 @@ public class GameWindowController extends GenericController {
    * @param newGame The game entity with which to replace our old one.
    */
   private void insertGameInfo(GameEntity newGame) {
+    // Set the game to the new game
     setGame(newGame);
+    numberOfTurns = game.getTurnsTaken();
+    isWhite = game.isGettingPlayerWhite();
+    isWhitesTurn = game.isWhitesTurn();
 
+    // Place all the pieces in their respective squares
     for (Piece piece : game.getPieces()) {
       Square sq = squares[piece.getY()][piece.getX()];
       sq.setPiece(piece);
+    }
+
+    updateDisplay();
+  }
+
+  private void incrementNumberOfTurns() {
+    numberOfTurns++;
+  }
+
+  private void updateDisplay() {
+    // Update label saying how many turns have passed
+    numberOfTurnsLabel.setText(Integer.toString(numberOfTurns));
+
+    // Update label saying whose turn it is
+    if (isWhitesTurn) {
+      whoseTurnCircle.setFill(Color.WHITE);
+      whoseTurnLabel.setText("White's turn");
+    } else {
+      whoseTurnCircle.setFill(Color.BLACK);
+      whoseTurnLabel.setText("Black's turn");
     }
   }
 
@@ -99,6 +152,18 @@ public class GameWindowController extends GenericController {
     this.selectedY = selectedY;
   }
 
+  public void setNumberOfTurns(int numberOfTurns) {
+    this.numberOfTurns = numberOfTurns;
+  }
+
+  public void setIsWhitesTurn(boolean isWhitesTurn) {
+    this.isWhitesTurn = isWhitesTurn;
+  }
+
+  public void setIsWhite(boolean isWhite) {
+    this.isWhite = isWhite;
+  }
+
   //----- Getters -----//
   public Piece getSelectedPiece() {
     return selectedPiece;
@@ -110,5 +175,17 @@ public class GameWindowController extends GenericController {
 
   public int getSelectedY() {
     return selectedY;
+  }
+
+  public int getNumberOfTurns() {
+    return numberOfTurns;
+  }
+
+  public boolean isWhitesTurn() {
+   return isWhitesTurn;
+  }
+
+  public boolean isWhite() {
+    return isWhite;
   }
 }

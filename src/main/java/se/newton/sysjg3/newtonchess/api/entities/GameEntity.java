@@ -29,7 +29,7 @@ public class GameEntity {
   private boolean whitesTurn;
 
   @SerializedName("turnsTaken")
-  private long turnsTaken;
+  private int turnsTaken;
 
   @SerializedName("finished")
   private boolean finished;
@@ -37,6 +37,14 @@ public class GameEntity {
   @SerializedName("pieces")
   List<Piece> pieces;
 
+  @SerializedName("gettingPlayerWhite")
+  private boolean gettingPlayerWhite;
+
+  @SerializedName("blackInCheck")
+  private boolean blackInCheck;
+
+  @SerializedName("whiteInCheck")
+  private boolean whiteInCheck;
   //----- Constructors -----//
   public GameEntity() {
     // Required no-arg constructor
@@ -68,7 +76,7 @@ public class GameEntity {
     this.whitesTurn = whitesTurn;
   }
 
-  public void setTurnsTaken(long turnsTaken) {
+  public void setTurnsTaken(int turnsTaken) {
     this.turnsTaken = turnsTaken;
   }
 
@@ -78,6 +86,18 @@ public class GameEntity {
 
   public void setPieces(List<Piece> pieces) {
     this.pieces = pieces;
+  }
+
+  public void setGettingPlayerWhite(boolean gettingPlayerWhite) {
+    this.gettingPlayerWhite = gettingPlayerWhite;
+  }
+
+  public void setBlackInCheck(boolean blackInCheck) {
+    this.blackInCheck = blackInCheck;
+  }
+
+  public void setWhiteInCheck(boolean whiteInCheck) {
+    this.whiteInCheck = whiteInCheck;
   }
 
   //----- Getters -----//
@@ -97,7 +117,7 @@ public class GameEntity {
     return whitesTurn;
   }
 
-  public long getTurnsTaken() {
+  public int getTurnsTaken() {
     return turnsTaken;
   }
 
@@ -107,5 +127,17 @@ public class GameEntity {
 
   public List<Piece> getPieces() {
     return pieces;
+  }
+
+  public boolean isGettingPlayerWhite() {
+    return gettingPlayerWhite;
+  }
+
+  public boolean isBlackInCheck() {
+    return blackInCheck;
+  }
+
+  public boolean isWhiteInCheck() {
+    return whiteInCheck;
   }
 }
