@@ -15,7 +15,7 @@ import se.newton.sysjg3.newtonchess.api.entities.TokenEntity;
 
 import java.io.IOException;
 
-public class MainWindowController extends GenericController {
+public class LoginWindowController extends GenericController {
 
   @FXML private Button logInButton;
   @FXML private Button signUpButton;

@@ -11,7 +11,7 @@
             id="mainWindow"
             styleClass="window"
             stylesheets="@/css/loginWindow.css"
-            fx:controller="se.newton.sysjg3.newtonchess.controllers.MainWindowController">
+            fx:controller="se.newton.sysjg3.newtonchess.controllers.LoginWindowController">
     <top>
         <HBox styleClass="header-section">
         <Label id="header-text" text="Newton Chess"></Label>

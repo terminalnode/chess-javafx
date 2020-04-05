@@ -5,12 +5,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import retrofit2.Response;
+import se.newton.sysjg3.newtonchess.api.ApiGame;
 import se.newton.sysjg3.newtonchess.api.entities.GameEntity;
 import se.newton.sysjg3.newtonchess.chesscomponents.Square;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
+
+import java.io.IOException;
 
 /**
  * The class that holds the board and lets you play the game.
@@ -70,8 +75,46 @@ public class GameWindowController extends GenericController {
       }
     }
 
-    // Instantiate the imageview's used for white horse and black horse.
-    int imageSize = 80;
+    // Set button listeners
+    refreshButton.setOnMouseClicked(this::refreshButtonClicked);
+    backButton.setOnMouseClicked(this::backButtonClicked);
+  }
+
+  /**
+   * Triggers when the back button is clicked. Replaces the scene with
+   * the games list scene, which will then pull all ongoing games from the server.
+   * @param mouseEvent The mouse event that clicked this button.
+   */
+  private void backButtonClicked(MouseEvent mouseEvent) {
+    try {
+      HelperMethods.replaceScene(HelperMethods.listGamesWindowFXML, HelperMethods.listGamesWindowTitle, mouseEvent, this);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Triggers when the refresh button is clicked. Downloads the latest
+   * state of the game, then updates the pieces on the board.
+   * @param mouseEvent The mouse event that clicked the button.
+   */
+  private void refreshButtonClicked(MouseEvent mouseEvent) {
+    boolean callSuccessful = true;
+    try {
+      game = ApiGame
+          .getGame(token.getTokenString(), game.getId())
+          .execute()
+          .body();
+    } catch (IOException e) {
+      callSuccessful = false;
+      System.out.println("Mamma mia! Something wenta wrong whena pulling the game-eh!");
+      e.printStackTrace();
+    }
+
+    if (callSuccessful) {
+      System.out.println("Refresh call was successful, updating the game state!");
+      insertGameInfo(game);
+    }
   }
 
   @Override
@@ -90,11 +133,10 @@ public class GameWindowController extends GenericController {
         HelperMethods.getRes(resourcePath).toExternalForm(),
         100, 100, true, true
     );
-    playerHorsie.getChildren().clear();
-    playerHorsie.getChildren().add(new ImageView(playerImage));
+    playerHorsie.getChildren().clear(); // remove the old fxml-defined image
+    playerHorsie.getChildren().add(new ImageView(playerImage)); // add our own image
 
     // Set opponent name
-    System.out.println(game.isGettingPlayerWhite());
     String opponentName = game.isGettingPlayerWhite() ?
         game.getBlackPlayer().getName() : game.getWhitePlayer().getName();
     opponentNameLabel.setText(opponentName);
@@ -123,11 +165,20 @@ public class GameWindowController extends GenericController {
     updateDisplay();
   }
 
+  /**
+   * Increment the number of turns by one, then update the display.
+   */
   public void incrementNumberOfTurns() {
     numberOfTurns++;
     updateDisplay();
   }
 
+  /**
+   * Update the display. Specifically:
+   * - Update the text on numberOfTurnsLabel
+   * - Update the color of the whoseTurnCircle
+   * - Update the text in the whoseTurnLabel
+   */
   private void updateDisplay() {
     // Update label saying how many turns have passed
     numberOfTurnsLabel.setText(Integer.toString(numberOfTurns));

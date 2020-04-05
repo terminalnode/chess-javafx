@@ -35,13 +35,6 @@ public abstract class Piece {
     this.moved = false;
     this.isWhite = isWhite;
     this.pieceGraphic = null;
-    shadow = new DropShadow();
-    shadow.setSpread(0.0001);
-    if (isWhite) {
-      shadow.setColor(Color.BLACK);
-    } else {
-      shadow.setColor(Color.WHITE);
-    }
   }
 
 
@@ -232,6 +225,14 @@ public abstract class Piece {
   }
 
   public ImageView getPieceGraphic() {
+    shadow = new DropShadow();
+    shadow.setSpread(0.0001);
+    if (isWhite) {
+      shadow.setColor(Color.BLACK);
+    } else {
+      shadow.setColor(Color.WHITE);
+    }
+
     if (pieceGraphic == null) {
       Image image = new Image(
           this.getDrawable().toExternalForm(),
