@@ -2,14 +2,14 @@ package se.newton.sysjg3.newtonchess.chesscomponents;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import se.newton.sysjg3.newtonchess.api.ApiGame;
+import se.newton.sysjg3.newtonchess.api.entities.MoveEntity;
 import se.newton.sysjg3.newtonchess.chesscomponents.pieces.Piece;
 import se.newton.sysjg3.newtonchess.controllers.GameWindowController;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-
-// TODO: Deselect piece if same square is clicked twice.
-// TODO: Mark selected square in some fashion.
-// TODO: Implement API call.
 
 /**
  * A clickhandler that's placed on the VBoxes contained in the squares, it checks if
@@ -115,7 +115,34 @@ public class SquareClickHandler implements EventHandler<MouseEvent> {
    * @return Boolean indicating whether the move was accepted by the API.
    */
   private boolean tryToMakeApiMove() {
-    return true;
+    // Create the new move we're going to send to the server.
+    MoveEntity newMove = new MoveEntity();
+    newMove.setPieceNumber(controller.getSelectedPiece().getInternalId());
+    List<Integer> destination = new ArrayList<>();
+    destination.add(mySquare.getX());
+    destination.add(mySquare.getY());
+    newMove.setDestination(destination);
+
+    boolean callSuccessful = false;
+    try {
+      callSuccessful = ApiGame
+          .makeMove(
+              controller.getToken().getTokenString(),
+              controller.getGame().getId(),
+              newMove)
+          .execute()
+          .isSuccessful();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    if (callSuccessful) {
+      System.out.println("Api move was successful! Good job!");
+    } else {
+      System.out.println("Api move failed! WHAT DID YOU DO??");
+    }
+
+    return callSuccessful;
   }
 
   /**
